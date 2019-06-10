@@ -1,5 +1,7 @@
 const express = require("express");
 const { books, authors } = require("./data");
+const expressGraphQL = require("express-graphql");
+
 const app = express();
 
 const {
@@ -64,8 +66,7 @@ const RootQueryType = new GraphQLObjectType({
 });
 
 const schema = new GraphQLSchema({
-  query: RootQueryType,
-  mutation: RootMutationType
+  query: RootQueryType
 });
 
 app.use(
